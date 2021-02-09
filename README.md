@@ -1,1 +1,1 @@
-# beans-association.github.io
+# beans-cult.github.io
