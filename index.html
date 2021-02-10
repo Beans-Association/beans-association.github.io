@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-	var a = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-	var b = ['Y','F','G','N','A','H','B','I','K','C','L','Z','X','D','O','V','R','S','Q','T','W','P','M','J','E','U','y','f','g','n','a','h','b','i','k','c','l','z','x','d','o','v','r','s','q','t','w','p','m','j','e','u'];
-	var output;
-	var translate = function(text) {
-		// console.log(text);
-		// console.log("start");
-		// console.log(b);
-		output = "";
-		for(i=0;i<text.length;i++) {
-			for(j=0;j<b.length;j++) {
-				if(text[i]===b[j]) {
-					// console.log(b[j]);
-					// console.log(a[j]);
-					// console.log(text[i]);
-					output = output + a[j];
-
-					break;
-				} else{
-					output[i] = text[i];
-				}
-			}
-			if(output.length==i) {output+=text[i];}
+	<title>Beans Cult</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+		body {
+			font-family: monospace;
 		}
-		// console.log(output);
-		return output;
-	}
-</script>
+	</style>
+	<script>
+		var english = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+		var beans = ['Y','F','G','N','A','H','B','I','K','C','L','Z','X','D','O','V','R','S','Q','T','W','P','M','J','E','U','y','f','g','n','a','h','b','i','k','c','l','z','x','d','o','v','r','s','q','t','w','p','m','j','e','u'];
+		var output;
+		var temp;
+		var translate = function(text, mode, a, b) {
+			if(mode === "ToEnglish") {
+				b = beans;
+				a = english;
+			} else if (mode==="ToBeans") {
+				b = english;
+				a = beans;
+			} else {
+
+			}
+			// console.log(text);
+			// console.log("start");
+			// console.log(b);
+			output = "";
+			for(i=0;i<text.length;i++) {
+				for(j=0;j<b.length;j++) {
+					if(text[i]===b[j]) {
+						// console.log(b[j]);
+						// console.log(a[j]);
+						// console.log(text[i]);
+						output = output + a[j];
+
+						break;
+					} else{
+						output[i] = text[i];
+					}
+				}
+				if(output.length==i) {output+=text[i];}
+			}
+			// console.log(output);
+			return output;
+		}
+	</script>
 </head>
 <body>
+	<select name="Mode" id="mode">
+	  <option value = "ToBeans">Translate to Beans</option>
+	  <option value="ToEnglish">Translate to English</option>
+	</select>
 	<input type="text" placeholder="Text to translate" id="text">
 	<button id="onclick">Submit</button>
 	<p id="output"></p>
 	<script>
 		document.getElementById("onclick").addEventListener("click", function() {
-			document.getElementById("output").innerHTML = translate(document.getElementById("text").value);
+			document.getElementById("output").innerHTML = translate(document.getElementById("text").value, document.getElementById("mode").value );
 		});
 	</script>
 </body>
