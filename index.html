@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Beans Cult Translator</title>
+	<link rel="shortcut icon" type="image/jpg" href="C:/Users/User/Downloads/BeansDoodle.png"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<style>
 		body {
 			font-family: monospace;
@@ -91,7 +94,7 @@
 <body>
 	<center>
 		<!-- <form> -->
-			<div class="card border-dark" style="padding:5%; padding-top: 0%; margin:2%">
+			<div class="card border-dark" style="padding:5%; padding-top: 0%; margin:1%; z-index: 1;">
 			  <!-- <img class="card-img-top" src="C:\Users\User\Downloads\BeansDoodle.png" alt="Card image cap" style="height: 10%; width: 10%"> -->
 			  <div class="card-body">
 			    <h2 class="card-title">Beans Cult Translator</h5>
@@ -109,15 +112,19 @@
 				<!-- </div> -->
 			  	<br>
 			  	<textarea class="cardtext" id="output" placeholder = "Translated text" style="height:200px;" disabled></textarea>
-			    <a href="#" class="btn btn-secondary" style="font-size:25px;	px; height:70px;" onclick="copyToClipboard(document.getElementById('output'))">Copy Translation</a>
-			  </div>
-			</div>
-	  
-<!-- 		</form> -->
+
+			    <a href="#" id="myBtn" data-toggle="tooltip" data-trigger="focus" title="Copied!" class="btn btn-secondary" style="font-size:25px;	px; height:70px;" onclick="copyToClipboard(document.getElementById('output'))">Copy Translation</a>
 			
-		
+			</div>
+
+
+<!-- 		</form> -->		
 	</center>
 	<script>
+
+		$(document).ready(function(){
+		  $('[data-toggle="tooltip"]').tooltip();   
+		});
 		document.getElementById("mode").addEventListener("input", function() {
 			document.getElementById("output").innerHTML = translate(document.getElementById("text").value, document.getElementById("mode").value );
 		});
