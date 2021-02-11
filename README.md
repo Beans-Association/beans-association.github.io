@@ -1,1 +1,1 @@
-# beans-cult.github.io
+# [beans-cult.github.io](https://beans-cult.github.io/)
