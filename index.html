@@ -7,10 +7,12 @@
 	<style>
 		body {
 			font-family: monospace;
+			font-size: 30px;
+			/*background-image: url("C:/Users/User/Downloads/BeansDoodle.png");*/
 		}
 		.select-css {
 			display: inline;
-			font-size: 16px;
+			font-size: 25px;
 			font-family: sans-serif;
 			font-weight: 700;
 			color: #444;
@@ -89,24 +91,25 @@
 <body>
 	<center>
 		<!-- <form> -->
-			<div class="card border-dark" style="width: max; padding:5%; margin:5%">
-			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+			<div class="card border-dark" style="padding:5%; padding-top: 0%; margin:2%">
+			  <!-- <img class="card-img-top" src="C:\Users\User\Downloads\BeansDoodle.png" alt="Card image cap" style="height: 10%; width: 10%"> -->
 			  <div class="card-body">
-			    <h5 class="card-title">Beans Cult Translator</h5>
+			    <h2 class="card-title">Beans Cult Translator</h5>
+			    	<br>
 			    	<div class="form-group">
 				  		<select name="Mode" id="mode" class="select-css">
 					  		<option value = "ToBeans">Translate to Beans</option>
 					  		<option value="ToEnglish">Translate to English</option>
 						</select>
-						<button id="onclick" class="btn btn-primary">Submit</button>
+						<!-- <button id="onclick" class="btn btn-primary">Submit</button> -->
 					</div>
 				</div>	
 				<!-- <div class="form-group"> -->
-					<textarea id = "text" placeholder = "Text to translate" style="width: max;"></textarea>
+					<textarea id = "text" placeholder = "Text to translate" style="width: max; height:300px;"></textarea>
 				<!-- </div> -->
-			  
-			  	<textarea class="cardtext" id="output" placeholder = "Translated text" disabled></textarea>
-			    <a href="#" class="btn btn-primary" onclick="copyToClipboard(document.getElementById('output'))">Copy</a>
+			  	<br>
+			  	<textarea class="cardtext" id="output" placeholder = "Translated text" style="height:200px;" disabled></textarea>
+			    <a href="#" class="btn btn-secondary" style="font-size:25px;	px; height:70px;" onclick="copyToClipboard(document.getElementById('output'))">Copy Translation</a>
 			  </div>
 			</div>
 	  
@@ -115,7 +118,7 @@
 		
 	</center>
 	<script>
-		document.getElementById("onclick").addEventListener("click", function() {
+		document.getElementById("text").addEventListener("input", function() {
 			document.getElementById("output").innerHTML = translate(document.getElementById("text").value, document.getElementById("mode").value );
 		});
 
