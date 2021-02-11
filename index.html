@@ -118,6 +118,10 @@
 		
 	</center>
 	<script>
+		document.getElementById("mode").addEventListener("input", function() {
+			document.getElementById("output").innerHTML = translate(document.getElementById("text").value, document.getElementById("mode").value );
+		});
+
 		document.getElementById("text").addEventListener("input", function() {
 			document.getElementById("output").innerHTML = translate(document.getElementById("text").value, document.getElementById("mode").value );
 		});
